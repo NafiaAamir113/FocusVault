@@ -1,75 +1,196 @@
-<<<<<<< HEAD
-# Getting Started with Create React App
+# FocusVault 🔒
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+FocusVault is a lightweight, high-performance full-stack task management workspace engineered to optimize productivity through structured priority organization, persistent task pinning, and intelligent workflow management.
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+# 🚀 Core Features
 
-### `npm start`
+- **Full-Stack CRUD Operations:**  
+  Seamless task creation, real-time modification, persistent storage, and secure deletion workflows.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- **Smart Prioritization Layer:**  
+  Categorize objectives dynamically across Low, Medium, and High priority levels.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- **Persistent Workspace Pinning:**  
+  Pin important tasks to the top of your workspace for fast visibility and structured focus management.
 
-### `npm test`
+- **Instant Dynamic Search Engine:**  
+  Real-time filtering across task titles, descriptions, and category tags for rapid information retrieval.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- **Responsive Productivity Workspace:**  
+  Clean and adaptive interface optimized for both desktop and smaller screen environments.
 
-### `npm run build`
+---
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+# 🛠️ Technical Architecture & Stack
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Frontend
+- React.js
+- CSS3
+- Dynamic State Management using React Hooks
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Backend
+- Flask REST API (Python 3.x)
+- Flask-CORS for frontend/backend communication
 
-### `npm run eject`
+## Database
+- SQLite3 relational database
+- Persistent local storage using absolute path resolution
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+---
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+# 💻 Local Installation & Deployment
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Prerequisites
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Ensure your system has the following installed globally:
 
-## Learn More
+- Node.js (v16+ recommended)
+- Python (3.8+ recommended)
+- Git
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+---
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+# 1️⃣ Backend Setup
 
-### Code Splitting
+Open a terminal and run:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+```bash
+cd backend
+pip install -r requirements.txt
+python app.py
+```
 
-### Analyzing the Bundle Size
+The Flask backend server will automatically:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+- initialize the SQLite database,
+- create the required schema if missing,
+- and launch locally at:
 
-### Making a Progressive Web App
+```text
+http://127.0.0.1:5000
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+---
 
-### Advanced Configuration
+# 2️⃣ Frontend Setup
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+Open a second terminal window and run:
 
-### Deployment
+```bash
+cd frontend
+npm install
+npm start
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+The React development server will automatically launch the application at:
 
-### `npm run build` fails to minify
+```text
+http://localhost:3000
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-=======
-# FocusVault
-A full-stack task management workspace featuring priority organization, persistent task pinning, and an automated deadline notification tracker. Built with React, Flask, and SQLite.
->>>>>>> c1b85c9bb20d57435fa17070f395a80806f21403
+---
+
+# 🎛️ REST API Endpoints
+
+| Method | Endpoint | Description |
+|---|---|---|
+| GET | `/tasks` | Retrieve all tasks sorted by pinned status |
+| POST | `/tasks` | Create a new task |
+| PUT | `/tasks/<id>` | Update an existing task |
+| DELETE | `/tasks/<id>` | Delete a task permanently |
+| PATCH | `/tasks/<id>/toggle-pin` | Toggle pin/unpin state |
+
+---
+
+# 📦 Example JSON Payload
+
+## Create Task
+
+```json
+{
+  "title": "Prepare FYP Presentation",
+  "description": "Finalize architecture diagrams",
+  "category": "Academic",
+  "priority": "High"
+}
+```
+
+---
+
+# 🌲 Project Structure
+
+```plaintext
+focusvault/
+├── backend/
+│   ├── app.py
+│   ├── database.db
+│   └── requirements.txt
+│
+├── frontend/
+│   ├── public/
+│   ├── src/
+│   │   ├── App.js
+│   │   ├── App.css
+│   │   ├── index.js
+│   │   └── components/
+│   │
+│   ├── package.json
+│   └── package-lock.json
+│
+├── .gitignore
+├── ANSWERS.md
+└── README.md
+```
+
+---
+
+# ✅ Persistence Guarantee
+
+All task records are stored inside a local SQLite database (`database.db`).
+
+This guarantees that:
+
+- tasks remain available after application shutdown,
+- data persists across multiple executions,
+- and the system satisfies persistent storage requirements.
+
+---
+
+# 📌 Beyond CRUD Feature
+
+FocusVault includes a persistent task pinning engine allowing users to prioritize important records and automatically surface them at the top of the workspace feed.
+
+Pinned tasks are dynamically sorted using backend database ordering logic.
+
+---
+
+# 🔍 Search & Filtering
+
+The frontend includes a live filtering engine capable of searching across:
+
+- task titles,
+- descriptions,
+- and category labels.
+
+Filtering updates instantly without requiring page reloads.
+
+---
+
+# 🧠 Design Philosophy
+
+FocusVault was intentionally designed to balance:
+
+- simplicity,
+- usability,
+- persistence reliability,
+- and clean architectural separation.
+
+The application focuses on delivering a lightweight but polished productivity workspace rather than overengineering unnecessary complexity.
+
+---
+
+# 📄 License
+
+This project was developed as part of the DevWeekends Fellowship Technical Assessment.
