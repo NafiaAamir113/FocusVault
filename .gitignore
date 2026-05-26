@@ -1,0 +1,8 @@
+node_modules/
+__pycache__/
+*.pyc
+backend/database.db
+node_modules/
+__pycache__/
+*.pyc
+backend/database.db
